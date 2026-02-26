@@ -6,7 +6,7 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:50:29 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/02/26 01:01:29 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/02/26 22:51:31 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ int main(int argc, char **argv)
 {
     int i;
 
-    i = 0;
-    
+    i = 1;
+    while (i <= argc - 1)
+    {
+        
+        i++;
+    }
+    return(0);
 }

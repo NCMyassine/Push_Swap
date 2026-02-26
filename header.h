@@ -6,7 +6,7 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:50:00 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/02/26 00:40:51 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/02/26 22:49:59 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 # define HEADER_H
 
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct node
 {
     int data;
     struct node* next;
 }node;
+char	**ft_split(char const *s, char c);
 
 #endif
