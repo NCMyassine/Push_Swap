@@ -6,8 +6,16 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:50:29 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/02/24 23:54:59 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/02/26 01:01:29 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+int main(int argc, char **argv)
+{
+    int i;
+
+    i = 0;
+    
+}
