@@ -6,12 +6,12 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 22:49:30 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/02/26 22:49:31 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/01 00:25:44 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include <header.h>
+#include "header.h"
 
 static void	freeall(char **res)
 {

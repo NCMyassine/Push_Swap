@@ -6,7 +6,7 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 00:03:22 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/02/28 01:23:25 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/01 01:25:33 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int	ft_atoi(const char *str)
 
 	res = 0;
 	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
+	
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
@@ -29,13 +28,9 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		if (sign == 1 && ((res > INT_MAX / 10)
-				|| (res == INT_MAX / 10 && *str - 48 > 7)))
-			return (-1);
-		if (sign == -1 && ((res > INT_MAX / 10)
-				|| (res == INT_MAX / 10 && *str - 48 > 8)))
-			return (0);
 		res = res * 10 + (*str - 48);
+		if((sign == 1 && res > 2147483647) || (sign == -1 && res > 2147483648))
+			exit(0);
 		str++;
 	}
 	return (res * sign);
