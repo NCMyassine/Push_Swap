@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int sign;
 	int res;
@@ -30,7 +30,7 @@ int	ft_atoi(const char *str)
 	{
 		res = res * 10 + (*str - 48);
 		if((sign == 1 && res > 2147483647) || (sign == -1 && res > 2147483648))
-			exit(0);
+			return(0);
 		str++;
 	}
 	return (res * sign);

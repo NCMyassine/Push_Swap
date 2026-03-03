@@ -12,7 +12,9 @@
 
 #include "header.h"
 
-void    addnode(node)
+void    addnode(node *head)
 {
-    
+    head = malloc(sizeof(node));
+
+    head->data = 
 }

@@ -23,6 +23,6 @@ typedef struct node
     struct node* next;
 }node;
 char	**ft_split(char const *s, char c);
-int	ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 
 #endif

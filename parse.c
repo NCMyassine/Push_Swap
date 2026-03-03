@@ -37,9 +37,7 @@ char *verify(char **tokens)
 int main(int argc, char **argv)
 {
     int i;
-    int j = 0;
     char **tokens;
-    char *validation;
 
     i = 1;
     while (i <= argc - 1)
@@ -47,7 +45,5 @@ int main(int argc, char **argv)
         tokens = ft_split(argv[i], ' ');
         i++;
     }
-    validation = verify(tokens);
-    printf("%s\n", validation);
     return(0);
 }
