@@ -28,9 +28,13 @@ void    addtostack(node **head, node *newnode)
 {
     node *tmp;
 
-    tmp = *head;
-    while (tmp->next != NULL)
-        tmp = tmp->next;
-    tmp->next = newnode;
-    newnode->next = NULL;
+    if (!*head)
+        *head = newnode;
+    else 
+    {
+        tmp = *head;
+        while (tmp->next != NULL)
+            tmp = tmp->next;
+        tmp->next = newnode;
+    }
 }

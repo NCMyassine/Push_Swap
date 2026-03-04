@@ -25,5 +25,6 @@ typedef struct node
 char	**ft_split(char const *s, char c);
 long	ft_atoi(const char *str);
 node    *createnode(int token);
+void    addtostack(node **head, node *newnode);
 
 #endif
