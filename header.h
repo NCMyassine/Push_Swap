@@ -24,5 +24,6 @@ typedef struct node
 }node;
 char	**ft_split(char const *s, char c);
 long	ft_atoi(const char *str);
+node    *createnode(int token);
 
 #endif

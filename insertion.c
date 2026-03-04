@@ -12,9 +12,25 @@
 
 #include "header.h"
 
-void    addnode(node *head)
+node    *createnode(int token)
 {
-    head = malloc(sizeof(node));
+    node *newnode;
 
-    head->data = 
+    newnode = malloc(sizeof(node));
+    if (!newnode)
+        return(newnode);
+    newnode->data = token;
+    newnode->next = NULL;
+    return(newnode);
+}
+
+void    addtostack(node **head, node *newnode)
+{
+    node *tmp;
+
+    tmp = *head;
+    while (tmp->next != NULL)
+        tmp = tmp->next;
+    tmp->next = newnode;
+    newnode->next = NULL;
 }
