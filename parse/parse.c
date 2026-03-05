@@ -11,22 +11,24 @@
 /* ************************************************************************** */
 
 #include "header.h"
-char *verify(char **tokens)
+char *verifier(char **tokens)
 {
     int i;
     int words;
 
     words = 0;
     i = 0;
+    if(tokens == NULL)
+        return(NULL);
     while (tokens[words])
     {
         if (!(tokens[words][i] >= '0' && tokens[words][i] <= '9') && !(tokens[words][i] == '-' || tokens[words][i] == '+'))
-            return("error");
+            return(NULL);
         i++;
         while (tokens[words][i])
         {
             if (!(tokens[words][i] >= '0' && tokens[words][i] <= '9'))
-                return("error");
+                return(NULL);
             i++;
         }
         i = 0;
@@ -34,16 +36,49 @@ char *verify(char **tokens)
     }
     return("all good");
 }
-int main(int argc, char **argv)
+node *checkandinsert(node **head, int number)
 {
     int i;
-    char **tokens;
+    node *ptr;
+    node *tmp;
 
-    i = 1;
-    while (i <= argc - 1)
+    i = 0;
+    ptr = *head;
+    while (ptr->next != NULL)
     {
-        tokens = ft_split(argv[i], ' ');
+        if(ptr->data == number)
+            return(NULL);
+        ptr = ptr->next;
+    }
+    tmp = ptr;
+    ptr = createnode(number);
+    addtostack(head, ptr);
+    return(ptr);
+}
+char *parser(char **arguments, node **head)
+{
+    char **tokens;
+    char *signal;
+    int number;
+    int i;
+    int j;
+
+    i = 0;
+    while(arguments[i] != NULL)
+    {
+        tokens = ft_split(arguments[i], ' ');
+        signal = verifier(tokens);
+        if (signal != NULL)
+        {
+            while(tokens[j] != NULL)
+            {
+                number = atoi(tokens[j++]);
+                if(checkandinsert(head, number) == NULL)
+                    return(NULL);
+            }
+        }
+        else
+            return(NULL);
         i++;
     }
-    return(0);
 }
