@@ -36,12 +36,14 @@ char *verifier(char **tokens)
     }
     return("all good");
 }
-node *checkandinsert(node **head, int number)
+node *checkandinsert(node **head, long number)
 {
     int i;
     node *ptr;
     node *tmp;
 
+    if (number == 2147483649)
+        return(NULL);
     i = 0;
     ptr = *head;
     while (ptr->next != NULL)
@@ -53,27 +55,26 @@ node *checkandinsert(node **head, int number)
     tmp = ptr;
     ptr = createnode(number);
     addtostack(head, ptr);
-    return(ptr);
+    return(*head);
 }
-char *parser(char **arguments, node **head)
+node *parser(char **arguments, node **head)
 {
     char **tokens;
-    char *signal;
-    int number;
+    node *tmp_head;
+    long number;
     int i;
-    int j;
 
     i = 0;
     while(arguments[i] != NULL)
     {
         tokens = ft_split(arguments[i], ' ');
-        signal = verifier(tokens);
-        if (signal != NULL)
+        if (verifier(tokens) != NULL)
         {
-            while(tokens[j] != NULL)
+            while(*tokens != NULL)
             {
-                number = atoi(tokens[j++]);
-                if(checkandinsert(head, number) == NULL)
+                number = ft_atoi(*(tokens++));
+                tmp_head = checkandinsert(head, number);
+                if(tmp_head == NULL)
                     return(NULL);
             }
         }
@@ -81,4 +82,5 @@ char *parser(char **arguments, node **head)
             return(NULL);
         i++;
     }
+    return(head);
 }
