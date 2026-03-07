@@ -82,5 +82,5 @@ node *parser(char **arguments, node **head)
             return(NULL);
         i++;
     }
-    return(head);
+    return(*head);
 }
