@@ -45,7 +45,7 @@ node *parser(char **arguments, node **head)
         tokens = ft_split(arguments[i], ' ');
         while(tokens[j] != NULL)
         {
-            tmp_head = checkandinsert(head, ft_atoi((tokens[j++)));
+            tmp_head = checkandinsert(head, ft_atoi((tokens[j++])));
             if(tmp_head == NULL)
                 return(NULL);
         }
