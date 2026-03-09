@@ -10,21 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "header.h"
-
-static void	freeall(char **res)
-{
-	int	i;
-
-	i = 0;
-	while (res[i])
-	{
-		free(res[i]);
-		i++;
-	}
-	free(res);
-}
 
 static char	*wrdscpy(char const *s, char c, int *ndx)
 {
@@ -92,7 +78,7 @@ char	**ft_split(char const *s, char c)
 		res[j] = wrdscpy(s, c, ndx);
 		if (!res[j])
 		{
-			freeall(res);
+			freesplit(res);
 			return (NULL);
 		}
 		j++;

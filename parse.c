@@ -12,12 +12,29 @@
 
 #include "header.h"
 
+void	freesplit(char **res)
+{
+	int	i;
+
+	i = 0;
+	while (res[i])
+	{
+		free(res[i]);
+		i++;
+	}
+	free(res);
+}
 node *checkandinsert(node **head, long number)
 {
     node *ptr;
 
     if (number == 2147483649)
         return(NULL);
+    if (*head == NULL)
+    {
+        *head = createnode(number);
+        return(*head);
+    }
     ptr = *head;
     while (ptr->next != NULL)
     {
@@ -47,8 +64,9 @@ node *parser(char **arguments, node **head)
         {
             tmp_head = checkandinsert(head, ft_atoi((tokens[j++])));
             if(tmp_head == NULL)
-                return(NULL);
+                return(freestack(head), NULL);
         }
+        freesplit(tokens);
     }
     return(*head);
 }

@@ -27,5 +27,8 @@ long	ft_atoi(const char *str);
 node    *createnode(int token);
 void    addtostack(node **head, node *newnode);
 void    freestack(node **head);
+void	freesplit(char **res);
+node *checkandinsert(node **head, long number);
+node *parser(char **arguments, node **head);
 
 #endif

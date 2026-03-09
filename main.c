@@ -6,7 +6,7 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 20:53:44 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/05 00:22:05 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/09 00:36:33 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,15 @@
 
 int main(int argc, char **argv)
 {
+    node **head;
+    node *res;
     
+    head = NULL;
+    res = parser(argv, head);
+    if (res == NULL)
+        return(printf("error"), 0);
+    if (res == *head)
+        return(printf("all good"), 0);
+    else
+        return(printf("fin ghadii"), 0);
 }
