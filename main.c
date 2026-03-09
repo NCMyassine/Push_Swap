@@ -17,12 +17,12 @@ int main(int argc, char **argv)
     node **head;
     node *res;
     
-    head = NULL;
-    res = parser(argv, head);
+    *head = NULL;
+    res = parser(argv, head, argc);
     if (res == NULL)
-        return(printf("error"), 0);
+        return(printf("error\n"), 0);
     if (res == *head)
-        return(printf("all good"), 0);
+        return(printf("all good\n"), 0);
     else
-        return(printf("fin ghadii"), 0);
+        return(printf("fin ghadii\n"), 0);
 }

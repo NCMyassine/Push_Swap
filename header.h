@@ -29,6 +29,6 @@ void    addtostack(node **head, node *newnode);
 void    freestack(node **head);
 void	freesplit(char **res);
 node *checkandinsert(node **head, long number);
-node *parser(char **arguments, node **head);
+node *parser(char **arguments, node **head, int argc);
 
 #endif

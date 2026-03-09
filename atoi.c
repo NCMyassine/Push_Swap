@@ -19,14 +19,15 @@ long	ft_atoi(const char *str)
 
 	res = 0;
 	sign = 1;
-	
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
 			sign = -1;
 		str++;
 	}
-	while(!*str)
+	if(!(*str >= '0' && *str <= '9'))
+		return (2147483649);
+	while(*str != '\0')
 	{
 		if (*str >= '0' && *str <= '9')
 		{

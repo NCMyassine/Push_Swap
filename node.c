@@ -38,20 +38,14 @@ void    addtostack(node **head, node *newnode)
         tmp->next = newnode;
     }
 }
-void    freestack(node **head)
+void freestack(node **head)
 {
     node *tmp;
-    node *ptr;
 
-    if(*head == NULL)
-        return ;
-    ptr = *head;
-    while (ptr->next != NULL)
+    while (*head)
     {
-        tmp = ptr;
-        ptr = ptr->next;
+        tmp = *head;
+        *head = (*head)->next;
         free(tmp);
     }
-    free(ptr);
-    *head = NULL;
 }
