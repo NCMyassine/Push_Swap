@@ -5,25 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 07:12:10 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/09 07:12:10 by marvin           ###   ########.fr       */
+/*   Created: 2026/03/11 08:43:33 by marvin            #+#    #+#             */
+/*   Updated: 2026/03/11 08:43:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_node *swap(t_node **head)
+void sa(t_node **a)
 {
-    int i;
-    t_node *tmp;
-    t_node *node_b;
-    t_node *node_a;
-
-    node_b = *head;
-    if (node_b->next != NULL)
-    {
-        node_b = node_b->next;
-        tmp = *head;
-        *head = node_b;
-    }
+    swap(a);
+    write(1, "sa\n", 3);
+}
+void sb(t_node **b)
+{
+    swap(b);
+    write(1, "sb\n", 3);
+}
+void ss(t_node **a, t_node **b)
+{
+    swap(a);
+    swap(b);
+    write(1, "ss\n", 3);
+}
+void pa(t_node **a, t_node **b)
+{
+    push(b, a);
+    write(1, "pa\n", 3);
+}
+void pb(t_node **a, t_node **b)
+{
+    push(a, b);
+    write(1, "pb\n", 3);
 }
