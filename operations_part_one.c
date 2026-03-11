@@ -16,14 +16,14 @@ t_node *swap(t_node **head)
 {
     int i;
     t_node *tmp;
-    t_node *ptr;
+    t_node *node_b;
+    t_node *node_a;
 
-    i = 0;
-    ptr = *head;
-    if (ptr->next != NULL)
+    node_b = *head;
+    if (node_b->next != NULL)
     {
-        ptr = ptr->next;
-        *head = ptr;
-
+        node_b = node_b->next;
+        tmp = *head;
+        *head = node_b;
     }
 }
