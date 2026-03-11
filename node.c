@@ -12,11 +12,11 @@
 
 #include "header.h"
 
-node    *createnode(int token)
+t_node    *createnode(int token)
 {
-    node *newnode;
+    t_node *newnode;
 
-    newnode = malloc(sizeof(node));
+    newnode = malloc(sizeof(t_node));
     if (!newnode)
         return(newnode);
     newnode->data = token;
@@ -24,9 +24,9 @@ node    *createnode(int token)
     return(newnode);
 }
 
-void    addtostack(node **head, node *newnode)
+void    addtostack(t_node **head, t_node *newnode)
 {
-    node *tmp;
+    t_node *tmp;
 
     if (!*head)
         *head = newnode;
@@ -38,9 +38,9 @@ void    addtostack(node **head, node *newnode)
         tmp->next = newnode;
     }
 }
-void freestack(node **head)
+void freestack(t_node **head)
 {
-    node *tmp;
+    t_node *tmp;
 
     while (*head)
     {

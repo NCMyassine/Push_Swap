@@ -10,3 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "header.h"
+
+t_node *swap(t_node **head)
+{
+    int i;
+    t_node *tmp;
+    t_node *ptr;
+
+    i = 0;
+    ptr = *head;
+    if (ptr->next != NULL)
+    {
+        ptr = ptr->next;
+        *head = ptr;
+
+    }
+}

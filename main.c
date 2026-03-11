@@ -14,8 +14,8 @@
 
 int main(int argc, char **argv)
 {
-    node **head;
-    node *res;
+    t_node **head;
+    t_node *res;
     
     *head = NULL;
     res = parser(argv, head, argc);

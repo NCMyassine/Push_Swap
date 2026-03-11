@@ -24,10 +24,10 @@ void	freesplit(char **res)
 	}
 	free(res);
 }
-node *checkandinsert(node **head, long number)
+t_node *checkandinsert(t_node **head, long number)
 {
-    node *ptr;
-    node *newnode;
+    t_node *ptr;
+    t_node *newnode;
 
     if (number == 2147483649)
         return (NULL);
@@ -44,10 +44,10 @@ node *checkandinsert(node **head, long number)
     addtostack(head, newnode);
     return (*head);
 }
-node *parser(char **arguments, node **head, int argc)
+t_node *parser(char **arguments, t_node **head, int argc)
 {
     char **tokens;
-    node *tmp_head;
+    t_node *tmp_head;
     int i;
     int j;
 

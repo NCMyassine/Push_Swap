@@ -17,18 +17,18 @@
 #include <stdio.h>
 #include <limits.h>
 
-typedef struct node
+typedef struct s_node
 {
     int data;
     struct node* next;
-}node;
+}   t_node;
 char	**ft_split(char const *s, char c);
 long	ft_atoi(const char *str);
-node    *createnode(int token);
-void    addtostack(node **head, node *newnode);
-void    freestack(node **head);
+t_node    *createnode(int token);
+void    addtostack(t_node **head, t_node *newnode);
+void    freestack(t_node **head);
 void	freesplit(char **res);
-node *checkandinsert(node **head, long number);
-node *parser(char **arguments, node **head, int argc);
+t_node *checkandinsert(t_node **head, long number);
+t_node *parser(char **arguments, t_node **head, int argc);
 
 #endif
