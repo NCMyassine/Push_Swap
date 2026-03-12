@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-    t_node **head;
+    t_node **head = malloc(sizeof(t_node));
     t_node *res;
     
     *head = NULL;

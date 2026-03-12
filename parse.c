@@ -19,7 +19,7 @@ void	freesplit(char **res)
 	i = 0;
 	while (res[i])
 	{
-		free(res[i]);
+        free(res[i]);
 		i++;
 	}
 	free(res);
@@ -28,20 +28,21 @@ t_node *checkandinsert(t_node **head, long number)
 {
     t_node *ptr;
     t_node *newnode;
-
+    
     if (number == 2147483649)
-        return (NULL);
+    return (NULL);
     ptr = *head;
     while (ptr)
     {
         if (ptr->data == number)
-            return (NULL);
+        return (NULL);
         ptr = ptr->next;
     }
     newnode = createnode(number);
     if (!newnode)
-        return (NULL);
+    return (NULL);
     addtostack(head, newnode);
+    
     return (*head);
 }
 t_node *parser(char **arguments, t_node **head, int argc)
@@ -55,6 +56,8 @@ t_node *parser(char **arguments, t_node **head, int argc)
     while (i < argc)
     {
         tokens = ft_split(arguments[i], ' ');
+        if (tokens == NULL)
+            return(freestack(head), NULL);
         j = 0;
         while (tokens[j])
         {
@@ -69,6 +72,12 @@ t_node *parser(char **arguments, t_node **head, int argc)
         }
         freesplit(tokens);
         i++;
+    }
+    t_node *tmp = (*head);
+    while (tmp)
+    {
+        printf("%d\n", (tmp)->data);
+        (tmp) = (tmp)->next;
     }
     return (*head);
 }

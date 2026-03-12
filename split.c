@@ -75,6 +75,8 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (j < counter(s, c))
 	{
+		if (counter(s,c) == 0)
+			return(NULL);
 		res[j] = wrdscpy(s, c, ndx);
 		if (!res[j])
 		{

@@ -20,7 +20,7 @@
 typedef struct s_node
 {
     int data;
-    struct node* next;
+    struct s_node* next;
 }   t_node;
 char	**ft_split(char const *s, char c);
 long	ft_atoi(const char *str);
