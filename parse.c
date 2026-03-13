@@ -63,21 +63,11 @@ t_node *parser(char **arguments, t_node **head, int argc)
         {
             tmp_head = checkandinsert(head, ft_atoi(tokens[j]));
             if (!tmp_head)
-            {
-                freesplit(tokens);
-                freestack(head);
-                return (NULL);
-            }
+                return (freesplit(tokens), freestack(head), NULL);
             j++;
         }
         freesplit(tokens);
         i++;
-    }
-    t_node *tmp = (*head);
-    while (tmp)
-    {
-        printf("%d\n", (tmp)->data);
-        (tmp) = (tmp)->next;
     }
     return (*head);
 }

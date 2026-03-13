@@ -16,7 +16,8 @@ int main(int argc, char **argv)
 {
     t_node **head = malloc(sizeof(t_node));
     t_node *res;
-    
+    if (argc == 1)
+        return (0);
     *head = NULL;
     res = parser(argv, head, argc);
     if (res == NULL)

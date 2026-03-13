@@ -73,16 +73,13 @@ char	**ft_split(char const *s, char c)
 	res = malloc((counter(s, c) + 1) * sizeof(char *));
 	if (!res)
 		return (NULL);
+	if (counter(s,c) == 0)
+		return(NULL);
 	while (j < counter(s, c))
 	{
-		if (counter(s,c) == 0)
-			return(NULL);
 		res[j] = wrdscpy(s, c, ndx);
 		if (!res[j])
-		{
-			freesplit(res);
-			return (NULL);
-		}
+			return (freesplit(res), NULL);
 		j++;
 	}
 	res[j] = NULL;
