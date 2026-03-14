@@ -20,6 +20,7 @@ t_node    *createnode(int token)
     if (!newnode)
         return(newnode);
     newnode->data = token;
+    newnode->index = 0;
     newnode->next = NULL;
     return(newnode);
 }

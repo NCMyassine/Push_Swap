@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 {
     t_node **head = malloc(sizeof(t_node));
     t_node *res;
+
     if (argc == 1)
         return (0);
     *head = NULL;
@@ -24,6 +25,4 @@ int main(int argc, char **argv)
         return(printf("error\n"), 0);
     if (res == *head)
         return(printf("all good\n"), 0);
-    else
-        return(printf("fin ghadii\n"), 0);
 }

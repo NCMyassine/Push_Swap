@@ -6,7 +6,13 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 22:43:30 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/10 22:43:31 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/13 22:26:04 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include"header.h"
+
+void radix_sort(t_node **stack_a, t_node **stack_b)
+{
+    
+}

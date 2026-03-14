@@ -3,7 +3,8 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.c atoi.c node.c parse.c split.c
+SRC = main.c node.c parse.c split.c operations_functions.c\
+	operations_part_one.c operations_part_two.c 
 
 OBJ = $(SRC:.c=.o)
 
