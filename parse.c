@@ -72,7 +72,6 @@ t_node *checkandinsert(t_node **head, long number)
     if (!newnode)
     return (NULL);
     addtostack(head, newnode);
-    
     return (*head);
 }
 t_node *parser(char **arguments, t_node **head, int argc)
