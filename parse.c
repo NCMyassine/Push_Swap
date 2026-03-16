@@ -54,14 +54,14 @@ long	ft_atoi(const char *str)
 	return (res * sign);
 }
 
-t_node *checkandinsert(t_node **head, long number)
+t_node *checkandinsert(t_node **stack_a, long number)
 {
     t_node *ptr;
     t_node *newnode;
     
     if (number == 2147483649)
     return (NULL);
-    ptr = *head;
+    ptr = *stack_a;
     while (ptr)
     {
         if (ptr->data == number)
@@ -71,10 +71,10 @@ t_node *checkandinsert(t_node **head, long number)
     newnode = createnode(number);
     if (!newnode)
     return (NULL);
-    addtostack(head, newnode);
-    return (*head);
+    addtostack(stack_a, newnode);
+    return (*stack_a);
 }
-t_node *parser(char **arguments, t_node **head, int argc)
+t_node *parser(char **arguments, t_node **stack_a, int argc)
 {
     char **tokens;
     t_node *tmp_head;
@@ -86,17 +86,17 @@ t_node *parser(char **arguments, t_node **head, int argc)
     {
         tokens = ft_split(arguments[i], ' ');
         if (tokens == NULL)
-            return(freestack(head), NULL);
+            return(freestack(stack_a), NULL);
         j = 0;
         while (tokens[j])
         {
-            tmp_head = checkandinsert(head, ft_atoi(tokens[j]));
+            tmp_head = checkandinsert(stack_a, ft_atoi(tokens[j]));
             if (!tmp_head)
-                return (freesplit(tokens), freestack(head), NULL);
+                return (freesplit(tokens), freestack(stack_a), NULL);
             j++;
         }
         freesplit(tokens);
         i++;
     }
-    return (*head);
+    return (*stack_a);
 }

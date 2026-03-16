@@ -14,10 +14,10 @@
 
 int main(int argc, char **argv)
 {
-    t_node **head = malloc(sizeof(t_node));
+    t_node **stack_a = malloc(sizeof(t_node));
     t_node *res;
 
     if (argc == 1)
         return (0);
-    res = parser(argv, head, argc);
+    res = parser(argv, stack_a, argc);
 }
