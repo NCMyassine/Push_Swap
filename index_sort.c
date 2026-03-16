@@ -6,12 +6,26 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 23:38:14 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/14 01:47:58 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/16 21:31:54 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
+int sorted(t_node **stack)
+{
+    t_node *ptr;
+    
+    ptr = *stack;
+    sort_index(stack);
+    while (ptr != NULL)
+    {
+        if(ptr->index > ptr->next->index)
+            return(0);
+        ptr = ptr->next;
+    }
+    return(1);
+}
 int size_of_stack(t_node *stack)
 {
     int count;

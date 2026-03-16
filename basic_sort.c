@@ -6,7 +6,7 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 05:55:07 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/16 01:00:54 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/16 21:34:26 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,27 +40,18 @@ void sort3(t_node **stack_a)
 
 void sort5(t_node **stack_a, t_node **stack_b)
 {
-    t_node *ptr;
-    
-    ptr = *stack_a;
-    sort_index(stack_a);
-    while(ptr)
+    if(sorted(stack_a))
+        return ;
+    while(size_of_stack(stack_a) > 3)
     {
-        if ((ptr->index == 0) || (ptr->index == 1))
+        if (((*stack_a)->index == 0) || ((*stack_a)->index == 1))
             pb(stack_a, stack_b);
         else
-            rra(stack_a);
+            ra(stack_a);
     }
     sort3(stack_a);
-    if ((*stack_b)->index == 1)
-    {
-        pa(*stack_a, *stack_b);
-        pa(*stack_a, *stack_b);
-    }
-    else if ((*stack_b)->index == 0)
-    {
-        sb(*stack_b);
-        pa(*stack_a, *stack_b);
-        pa(*stack_a, *stack_b);
-    }
+    if ((*stack_b)->index > (*stack_a)->next->index)
+        sb(stack_b);
+    pa(stack_a, stack_b);
+    pa(stack_a, stack_b);
 }

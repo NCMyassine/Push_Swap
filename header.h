@@ -48,4 +48,8 @@ void rrb(t_node **b);
 void rrr(t_node **a, t_node **b);
 void sort_index(t_node **stack_a);
 int size_of_stack(t_node *stack);
+int sorted(t_node **stack);
+void sort2(t_node **stack_a);
+void sort3(t_node **stack_a);
+void sort5(t_node **stack_a, t_node **stack_b);
 #endif

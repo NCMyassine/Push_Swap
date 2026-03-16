@@ -6,7 +6,7 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 22:43:30 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/15 00:25:39 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/16 21:35:17 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void radix_sort(t_node **stack_a, t_node **stack_b)
     int pass;
     
     pass = 0;
+    if(sorted(stack_a))
+        return ;
     size = size_of_stack(*stack_a);
-    sort_index(*stack_a);
     while (((size - 1) >> bits) != 0)
         bits++;
     while (pass < bits)
@@ -28,11 +29,12 @@ void radix_sort(t_node **stack_a, t_node **stack_b)
         while(*stack_a != NULL)
         {
             if((((*stack_a)->index) >> pass) & 1)
-                ra(*stack_a);
+                ra(stack_a);
             else
-                pb(*stack_a, *stack_b);
+                pb(stack_a, stack_b);
         }
+        pass++;
         while(stack_b != NULL)
-            pa(*stack_a, *stack_b);
+            pa(stack_a, stack_b);
     }
 }
