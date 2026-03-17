@@ -1,10 +1,11 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 SRC = main.c node.c parse.c split.c operations_functions.c\
-	operations_part_one.c operations_part_two.c 
+	operations_part_one.c operations_part_two.c basic_sort.c\
+	index_sort.c radix_sort.c
 
 OBJ = $(SRC:.c=.o)
 

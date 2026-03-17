@@ -6,7 +6,7 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:30:29 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/11 19:30:32 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/17 01:09:50 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,19 @@ void    push(t_node **stack_src, t_node **stack_dest)
 
     if (*stack_src == NULL)
         return ;
-    tmp = *stack_src;
-    *stack_src = tmp->next;
-    tmp->next = *stack_dest; 
-    *stack_dest = tmp;
+    if (stack_dest == NULL)
+    {
+        tmp = *stack_src;
+        *stack_src = tmp->next;
+        *stack_dest = tmp;  
+    }
+    else
+    {
+        tmp = *stack_src;
+        *stack_src = tmp->next;
+        tmp->next = *stack_dest; 
+        *stack_dest = tmp;
+    }
 }
 void    rotate(t_node **head)
 {

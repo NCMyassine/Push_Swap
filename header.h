@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
+#include <unistd.h>
 
 typedef struct s_node
 {
@@ -52,4 +53,5 @@ int sorted(t_node **stack);
 void sort2(t_node **stack_a);
 void sort3(t_node **stack_a);
 void sort5(t_node **stack_a, t_node **stack_b);
+void radix_sort(t_node **stack_a, t_node **stack_b);
 #endif
