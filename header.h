@@ -30,6 +30,7 @@ t_node    *createnode(int token);
 void    addtostack(t_node **head, t_node *newnode);
 void    freestack(t_node **head);
 void	freesplit(char **res);
+void finalfree(t_node **stack_a, t_node **stack_b);
 t_node *checkandinsert(t_node **head, long number);
 t_node *parser(char **arguments, t_node **head, int argc);
 void    reverse_rotate(t_node **head);

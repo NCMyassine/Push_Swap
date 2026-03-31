@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 22:43:30 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/17 03:33:00 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/28 15:37:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,13 @@ void radix_sort(t_node **stack_a, t_node **stack_b)
     
     pass = 0;
     bits = 0;
-    i = 0;
-    if(sorted(stack_a))
-        return ;
     size = size_of_stack(*stack_a);
     while (((size - 1) >> bits) != 0)
         bits++;
     while (pass < bits)
     {
-        while(size - 1 > i)
+        i = 0;
+        while(size - 1 >= i)
         {
             if((((*stack_a)->index) >> pass) & 1)
                 ra(stack_a);

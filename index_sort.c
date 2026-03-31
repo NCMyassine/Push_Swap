@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 23:38:14 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/16 21:31:54 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/30 11:58:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int sorted(t_node **stack)
     
     ptr = *stack;
     sort_index(stack);
-    while (ptr != NULL)
+    while (ptr && ptr->next)
     {
         if(ptr->index > ptr->next->index)
             return(0);
@@ -32,8 +32,8 @@ int size_of_stack(t_node *stack)
     t_node *ptr;
     
     ptr = stack;
-    count = 1;
-    while (ptr->next)
+    count = 0;
+    while (ptr)
     {
         count++;
         ptr = ptr->next;
@@ -47,11 +47,11 @@ void sort_index(t_node **stack_a)
     t_node *ptr2;
 
     ptr = *stack_a;
-    while(ptr->next)
+    while(ptr)
     {
         index = 0;
         ptr2 = *stack_a;
-        while(ptr2->next)
+        while(ptr2)
         {
             if (ptr->data > ptr2->data)
                 index++;
@@ -60,4 +60,10 @@ void sort_index(t_node **stack_a)
         ptr->index = index;
         ptr = ptr->next; 
     }
+}
+
+void finalfree(t_node **stack_a, t_node **stack_b)
+{
+    freestack(stack_a);
+    freestack(stack_b);
 }

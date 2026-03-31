@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_functions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:30:29 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/17 01:09:50 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/21 04:38:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,12 @@ void    push(t_node **stack_src, t_node **stack_dest)
 {
     t_node *tmp;
 
-    if (*stack_src == NULL)
+    if (!stack_src || !stack_dest || *stack_src == NULL)
         return ;
-    if (stack_dest == NULL)
-    {
-        tmp = *stack_src;
-        *stack_src = tmp->next;
-        *stack_dest = tmp;  
-    }
-    else
-    {
-        tmp = *stack_src;
-        *stack_src = tmp->next;
-        tmp->next = *stack_dest; 
-        *stack_dest = tmp;
-    }
+    tmp = *stack_src;
+    *stack_src = (*stack_src)->next;
+    tmp->next = *stack_dest;
+    *stack_dest = tmp;
 }
 void    rotate(t_node **head)
 {

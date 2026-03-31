@@ -1,7 +1,8 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+
+CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 
 SRC = main.c node.c parse.c split.c operations_functions.c\
 	operations_part_one.c operations_part_two.c basic_sort.c\

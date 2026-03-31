@@ -60,17 +60,17 @@ t_node *checkandinsert(t_node **stack_a, long number)
     t_node *newnode;
     
     if (number == 2147483649)
-    return (NULL);
-    ptr = *stack_a;
-    while (ptr)
-    {
-        if (ptr->data == number)
         return (NULL);
+    ptr = *stack_a;
+    while (ptr != NULL)
+    {   
+        if (ptr->data == number)
+            return (NULL);
         ptr = ptr->next;
     }
     newnode = createnode(number);
     if (!newnode)
-    return (NULL);
+        return (NULL);
     addtostack(stack_a, newnode);
     return (*stack_a);
 }
@@ -84,13 +84,15 @@ t_node *parser(char **arguments, t_node **stack_a, int argc)
     i = 1;
     while (i < argc)
     {
+        int num;
         tokens = ft_split(arguments[i], ' ');
         if (tokens == NULL)
             return(freestack(stack_a), NULL);
         j = 0;
         while (tokens[j])
         {
-            tmp_head = checkandinsert(stack_a, ft_atoi(tokens[j]));
+            num = ft_atoi(tokens[j]);
+            tmp_head = checkandinsert(stack_a, num);
             if (!tmp_head)
                 return (freesplit(tokens), freestack(stack_a), NULL);
             j++;

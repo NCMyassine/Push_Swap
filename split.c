@@ -27,7 +27,7 @@ static char	*wrdscpy(char const *s, char c, int *ndx)
 	}
 	while (s[i] != c && s[i])
 		i++;
-	str = malloc(i - *ndx + 1);
+	str = malloc(sizeof(char) *(i - *ndx + 1));
 	if (!str)
 		return (NULL);
 	while (i > *ndx)

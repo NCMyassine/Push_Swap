@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 05:55:07 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/17 03:00:24 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/03/28 20:24:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void sort2(t_node **stack_a)
 {
-    if ((*stack_a)->data > (*stack_a)->next->data)
-        sa(stack_a);
+    sa(stack_a);
     return ;
 }
 void sort3(t_node **stack_a)
@@ -24,8 +23,6 @@ void sort3(t_node **stack_a)
     int scnd;
     int thrd;
     
-    if(sorted(stack_a))
-        return ;
     frst = (*stack_a)->data;
     scnd = (*stack_a)->next->data;
     thrd = (*stack_a)->next->next->data;
@@ -41,12 +38,9 @@ void sort3(t_node **stack_a)
         return(rra(stack_a));
     return ;
 }
-
 void sort5(t_node **stack_a, t_node **stack_b)
 {
-    if(sorted(stack_a))
-        return ;
-    while(size_of_stack(*stack_a) > 3)
+    while(size_of_stack(*stack_a) != 3)
     {
         if (((*stack_a)->index == 0) || ((*stack_a)->index == 1))
             pb(stack_a, stack_b);
@@ -54,7 +48,7 @@ void sort5(t_node **stack_a, t_node **stack_b)
             ra(stack_a);
     }
     sort3(stack_a);
-    if ((*stack_b)->index > (*stack_a)->next->index)
+    if ((*stack_b)->index < (*stack_b)->next->index)
         sb(stack_b);
     pa(stack_a, stack_b);
     pa(stack_a, stack_b);
