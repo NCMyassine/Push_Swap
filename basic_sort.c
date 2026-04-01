@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 05:55:07 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/28 20:24:56 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/31 21:33:17 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,18 @@ void sort3(t_node **stack_a)
     if (frst < scnd && frst > thrd)
         return(rra(stack_a));
     return ;
+}
+void sort4(t_node **stack_a, t_node **stack_b)
+{
+     while(size_of_stack(*stack_a) != 3)
+    {
+        if (((*stack_a)->index == 0))
+            pb(stack_a, stack_b);
+        else
+            ra(stack_a);
+    }
+    sort3(stack_a);
+    pa(stack_a, stack_b);
 }
 void sort5(t_node **stack_a, t_node **stack_b)
 {

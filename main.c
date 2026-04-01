@@ -23,8 +23,6 @@ int main(int argc, char **argv)
 
     if (argc == 1)
         return (0);
-    // stack_b = malloc(sizeof(t_node));
-    // stack_a = malloc(sizeof(t_node));
     init(&stack_a, &stack_b);
     if (parser(argv, &stack_a, argc) == NULL)
         write(1, "error\n", 6);
@@ -34,7 +32,9 @@ int main(int argc, char **argv)
         sort2(&stack_a);
     else if (size_of_stack(stack_a) == 3)
         sort3(&stack_a);
-    else if (size_of_stack(stack_a) == 5 || size_of_stack(stack_a) == 4)
+    else if (size_of_stack(stack_a) == 4)
+        sort4(&stack_a, &stack_b);
+    else if (size_of_stack(stack_a) == 5)
         sort5(&stack_a, &stack_b);
     else if (size_of_stack(stack_a) > 5)
         radix_sort(&stack_a, &stack_b);

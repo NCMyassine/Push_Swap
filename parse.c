@@ -33,23 +33,22 @@ long	ft_atoi(const char *str)
 	sign = 1;
 	if (*str == '+' || *str == '-')
 	{
-		if (*str == '-')
+		if (*str++ == '-')
 			sign = -1;
-		str++;
 	}
-	if(!(*str >= '0' && *str <= '9'))
+	if (!(*str >= '0' && *str <= '9'))
 		return (2147483649);
-	while(*str != '\0')
+	while (*str != '\0')
 	{
 		if (*str >= '0' && *str <= '9')
 		{
 			res = res * 10 + (*str - 48);
-			if((sign == 1 && res > 2147483647) || (sign == -1 && res > 2147483648))
-				return(2147483649);
+			if ((sign == 1 && res > 2147483647) || (sign == -1 && res > 2147483648))
+				return (2147483649);
 			str++;
 		}
-		else
-			return(2147483649);
+        else
+			return (2147483649);
 	}
 	return (res * sign);
 }
