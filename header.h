@@ -13,47 +13,55 @@
 #ifndef HEADER_H
 # define HEADER_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <limits.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <limits.h>
+# include <unistd.h>
 
 typedef struct s_node
 {
-    int data;
-    struct s_node* next;
-    int index;
-}   t_node;
-char    **ft_split(char const *s, char c);
-long    ft_atoi(const char *str);
-t_node  *createnode(int token);
-void    addtostack(t_node **head, t_node *newnode);
-void    freestack(t_node **head);
+	int				data;
+	int				index;
+	struct s_node	*next;
+}	t_node;
+
+char	**ft_split(char const *s, char c);
+long	ft_atoi(const char *str);
+
+t_node	*createnode(int token);
+t_node	*checkandinsert(t_node **head, long number);
+t_node	*parser(char **arguments, t_node **head, int argc);
+
+void	addtostack(t_node **head, t_node *newnode);
+void	freestack(t_node **head);
 void	freesplit(char **res);
-void    finalfree(t_node **stack_a, t_node **stack_b);
-t_node  *checkandinsert(t_node **head, long number);
-t_node  *parser(char **arguments, t_node **head, int argc);
-void    reverse_rotate(t_node **head);
-void    rotate(t_node **head);
-void    push(t_node **stack_src, t_node **stack_dest);
-void    swap(t_node **head);
-void    sa(t_node **a);
-void    sb(t_node **b);
-void    ss(t_node **a, t_node **b);
-void    pa(t_node **a, t_node **b);
-void    pb(t_node **a, t_node **b);
-void    ra(t_node **a);
-void    rb(t_node **b);
-void    rr(t_node **a, t_node **b);
-void    rra(t_node **a);
-void    rrb(t_node **b);
-void    rrr(t_node **a, t_node **b);
-void    sort_index(t_node **stack_a);
-int size_of_stack(t_node *stack);
-int sorted(t_node **stack);
-void    sort2(t_node **stack_a);
-void    sort3(t_node **stack_a);
-void    sort4(t_node **stack_a, t_node **stack_b);
-void    sort5(t_node **stack_a, t_node **stack_b);
-void    radix_sort(t_node **stack_a, t_node **stack_b);
+void	finalfree(t_node **stack_a, t_node **stack_b);
+
+void	swap(t_node **head);
+void	push(t_node **stack_src, t_node **stack_dest);
+void	rotate(t_node **head);
+void	reverse_rotate(t_node **head);
+
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);
+void	pa(t_node **a, t_node **b);
+void	pb(t_node **a, t_node **b);
+void	ra(t_node **a);
+void	rb(t_node **b);
+void	rr(t_node **a, t_node **b);
+void	rra(t_node **a);
+void	rrb(t_node **b);
+void	rrr(t_node **a, t_node **b);
+
+void	sort_index(t_node **stack_a);
+int		size_of_stack(t_node *stack);
+int		sorted(t_node **stack);
+
+void	sort2(t_node **stack_a);
+void	sort3(t_node **stack_a);
+void	sort4(t_node **stack_a, t_node **stack_b);
+void	sort5(t_node **stack_a, t_node **stack_b);
+void	radix_sort(t_node **stack_a, t_node **stack_b);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: yabouzel <yabouzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 22:49:30 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/01 00:25:44 by yabouzel         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:43:28 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ char	**ft_split(char const *s, char c)
 	res = malloc((counter(s, c) + 1) * sizeof(char *));
 	if (!res)
 		return (NULL);
-	if (counter(s,c) == 0)
-		return(NULL);
+	if (counter(s, c) == 0)
+		return (NULL);
 	while (j < counter(s, c))
 	{
 		res[j] = wrdscpy(s, c, ndx);
