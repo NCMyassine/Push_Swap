@@ -6,71 +6,75 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:30:29 by yabouzel          #+#    #+#             */
-/*   Updated: 2026/03/21 04:38:50 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/02 01:27:05 by yabouzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void    swap(t_node **head)
+void	swap(t_node **head)
 {
-    t_node *node_b;
-    t_node *node_a;
+	t_node	*node_b;
+	t_node	*node_a;
 
-    node_a = *head;
-    if (*head == NULL || node_a->next == NULL)
-        return ;
-    node_b = node_a->next;
-    node_a->next = node_b->next;
-    node_b->next = *head;
-    *head = node_b;
+	node_a = *head;
+	if (*head == NULL || node_a->next == NULL)
+		return ;
+	node_b = node_a->next;
+	node_a->next = node_b->next;
+	node_b->next = *head;
+	*head = node_b;
 }
-void    push(t_node **stack_src, t_node **stack_dest)
-{
-    t_node *tmp;
 
-    if (!stack_src || !stack_dest || *stack_src == NULL)
-        return ;
-    tmp = *stack_src;
-    *stack_src = (*stack_src)->next;
-    tmp->next = *stack_dest;
-    *stack_dest = tmp;
-}
-void    rotate(t_node **head)
+void	push(t_node **stack_src, t_node **stack_dest)
 {
-    t_node *first;
-    t_node *last;
+	t_node	*tmp;
 
-    if (*head == NULL || (*head)->next == NULL)
-        return ;
-    first = *head;
-    *head = first->next;
-    last = *head;
-    while (last->next != NULL)
-        last = last->next;
-    last->next = first;
-    first->next = NULL;
+	if (!stack_src || !stack_dest || *stack_src == NULL)
+		return ;
+	tmp = *stack_src;
+	*stack_src = (*stack_src)->next;
+	tmp->next = *stack_dest;
+	*stack_dest = tmp;
 }
-void    reverse_rotate(t_node **head)
-{
-    t_node *before_last;
-    t_node *last;
 
-    if (*head == NULL || (*head)->next == NULL)
-        return ;
-    last = *head;
-    while (last->next != NULL)
-        last = last->next;
-    before_last = *head;
-    while (before_last->next != last)
-        before_last = before_last->next;
-    last->next = *head;
-    *head = last;
-    before_last->next = NULL;
-}
-void rrr(t_node **a, t_node **b)
+void	rotate(t_node **head)
 {
-    reverse_rotate(a);
-    reverse_rotate(b);
-    write(1, "rrr\n", 4);
+	t_node	*first;
+	t_node	*last;
+
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	first = *head;
+	*head = first->next;
+	last = *head;
+	while (last->next != NULL)
+		last = last->next;
+	last->next = first;
+	first->next = NULL;
+}
+
+void	reverse_rotate(t_node **head)
+{
+	t_node	*before_last;
+	t_node	*last;
+
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	last = *head;
+	while (last->next != NULL)
+		last = last->next;
+	before_last = *head;
+	while (before_last->next != last)
+		before_last = before_last->next;
+	last->next = *head;
+	*head = last;
+	before_last->next = NULL;
+}
+
+void	rrr(t_node **a, t_node **b)
+{
+	reverse_rotate(a);
+	reverse_rotate(b);
+	write(1, "rrr\n", 4);
 }
