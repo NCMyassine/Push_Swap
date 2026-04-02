@@ -20,6 +20,7 @@ void	freesplit(char **res)
 	while (res[i])
 	{
 		free(res[i]);
+		res[i] = NULL;
 		i++;
 	}
 	free(res);

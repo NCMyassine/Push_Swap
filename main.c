@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 		return (0);
 	init(&stack_a, &stack_b);
 	if (parser(argv, &stack_a, argc) == NULL)
-		write(1, "error\n", 6);
+		write(2, "error\n", 6);;
 	if (sorted(&stack_a))
 		return (finalfree(&stack_a, &stack_b), 0);
 	if (size_of_stack(stack_a) == 2)
